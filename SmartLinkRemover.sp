@@ -1,6 +1,6 @@
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.5.8"
+#define PLUGIN_VERSION "1.5.9"
 
 #include <sourcemod>
 #include <sdktools>
@@ -29,7 +29,7 @@ public void OnPluginStart()
 	HookUserMessage(GetUserMessageId("SayText2"), SayText2, true);
 	
 	char error[256];
-	char pattern[256] = "((http:[/]{2}|https:[/]{2}|www[.])?([-a-zA-Z0-9]{2,}[.][a-zA-Z]{2,5})([a-zA-Z0-9]*?[.][a-zA-Z0-9]{2,5})?([/][a-zA-Z0-9]*)*(?=[^a-zA-Z0-9]|$))";
+	char pattern[256] = "((http[s]??:[/]{2})?([-a-zA-Z0-9]{2,}[.][a-zA-Z]{2,5})([a-zA-Z0-9]*?[.][a-zA-Z0-9]{2,5})?([/][a-zA-Z0-9]*)*(?=[^a-zA-Z0-9]|$))";
 	urlPattern = CompileRegex(pattern, PCRE_CASELESS, error, sizeof(error), theError);
 	if (theError != REGEX_ERROR_NONE)
 		LogError(error);
